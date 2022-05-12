@@ -1,5 +1,4 @@
 import path from 'path'
-// import { fileURLToPath } from 'url';
 
 import { run } from './runCommand'
 import { dependences } from './dependences'
@@ -8,13 +7,9 @@ import { createFolder, copyFolder } from './utils'
 
 const createApplication = (app='mz-application') => {
   
-  // const __filename = fileURLToPath(import.meta.url);
-  // const __dirname = path.dirname(__filename);
-
   const appPath = path.resolve(process.cwd(), app)
   const modelsFolder = path.resolve(__dirname, '..','models')
-  
-  
+    
   createFolder( appPath )
   copyFolder( modelsFolder, appPath )
 
