@@ -4,7 +4,7 @@
   "description": "",
   "main": "./src/index.ts",
   "bin": {
-    "mz-cli": "./build/bin/index.js"
+    "mz-cli": "./dist/bin/index.js"
   },
   "scripts": {
     "build":"tsc --build"    

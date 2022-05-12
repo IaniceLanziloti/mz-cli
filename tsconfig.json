@@ -12,8 +12,12 @@
     "noImplicitAny": false,
     "checkJs": false,
     "moduleResolution": "node",
-    "types": ["node"],
-    "lib": ["ES5"],
+    "types": [
+      "node"
+    ],
+    "lib": [
+      "ES5"
+    ],
     "allowUnreachableCode": false,
     "useUnknownInCatchVariables": false,
     "resolveJsonModule": true,
@@ -23,5 +27,8 @@
     "strictPropertyInitialization": false,
     "skipLibCheck": true
   },
-  "include": ["*.ts", "**/*.ts"]
+  "include": [
+    "*.ts",
+    "**/*.ts"
+  ]
 }

@@ -1,12 +1,13 @@
 #! /usr/bin/env node
-import yargs from 'yargs'
+import yargs, { Arguments }  from 'yargs'
 
 import { createApplication, createDomain, createResource } from './functions'
+import IArgsOptions from './interfaces/IArgsOptions'
+import ICLIArgs from './interfaces/ICLIArgs'
 
-(async function handle() {
-  const usageMessage = `Use mz-cli to create domains and resources into your application`
+(function handle() {
 
-  const options: { [key: string]: yargs.Options } = {
+  const options: IArgsOptions = {
     'application': {
       alias: 'a',
       describe: 'create an application',
@@ -24,23 +25,25 @@ import { createApplication, createDomain, createResource } from './functions'
     }
   }
 
+  const usageMessage = `Use mz-cli to create domains and resources into your application`
+
   const _yargs = yargs(process.argv.slice(2))
     .options(options)
     .usage(usageMessage)
     .help(true);
 
-  const argv = await _yargs.argv;
+  const argv = _yargs.argv as Arguments<ICLIArgs>
 
   if (argv.application) {
-    createApplication(argv.application as string)
+    createApplication(argv.application)
   }
 
   if (argv.domain) {
-    createDomain(argv.domain as string);
+    createDomain(argv.domain);
   }
 
   if (argv.resource) {
-    createResource(argv.resource as string)
+    createResource(argv.resource)
   }
 
   const receivedParam = Object.keys(argv).some(key => Object.keys(options).includes(key))
