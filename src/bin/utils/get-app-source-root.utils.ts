@@ -1,7 +1,9 @@
-import fs from 'fs'
-import path from 'path';
+import path from 'path'
+import fs from 'fs';
 
-const getSourceRoot = () => {
+
+
+const getAppSourceRoot = () => {
   const basePath = process.cwd();
   const relativePaths:string[] = [];
 
@@ -34,29 +36,4 @@ const getSourceRoot = () => {
   return path.resolve(relativePath, configuration.rootDir)
 }
 
-const createConfigurationFile = (filePath:string) => {
-  const configurationFilename = "mz-cli.json";
-  const configurationContent = {
-    "rootDir": "./src"
-  }
-
-  fs.writeFileSync(
-    path.resolve(filePath,configurationFilename),
-    JSON.stringify(configurationContent)
-  )
-}
-
-const createFolder = (folder:string) => {
-  if (!fs.existsSync(folder)) {
-    fs.mkdirSync(folder, { recursive: true })
-  }
-}
-
-const copyFolder = (folder:string, destination:string) => {
-  fs.cpSync(folder, destination, { recursive: true })
-}
-
-const ToUpperFirstLetter = (text = '') => text.charAt(0).toUpperCase() + text.slice(1);
-
-
-export { createConfigurationFile, createFolder, copyFolder, ToUpperFirstLetter, getSourceRoot }
+export { getAppSourceRoot }

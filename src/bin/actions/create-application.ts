@@ -2,7 +2,7 @@ import path from 'path'
 
 import { IPipeline } from '../interfaces/pipeline.interface'
 import { PipelineExecutor } from '../executors';
-import { createConfigurationFile } from './utils';
+import { createConfigurationFile } from '../utils';
 
 const createApplication = (appName='mz-application') => {   
   const appPath = path.resolve(process.cwd(), appName);

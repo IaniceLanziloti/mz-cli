@@ -1,6 +1,6 @@
 import path from "path";
 
-import { createFolder, getSourceRoot } from "./utils";
+import { createFolder, getAppSourceRoot } from "../utils";
 import { PipelineExecutor } from "../executors";
 import { IPipeline } from "../interfaces/pipeline.interface";
 import { ICommand } from "../interfaces/command.interface";
@@ -35,7 +35,7 @@ const directoriesDefsToCommand = (basePath:string, directories:IDirectoriesDefs[
 }
 
 const createDomain = (domain:string) =>{
-  const sourcePath = getSourceRoot()
+  const sourcePath = getAppSourceRoot()
   const domainsPath = path.resolve( sourcePath,'domains');
 
   const baseArchitecture: IDomainArchitecture = {
