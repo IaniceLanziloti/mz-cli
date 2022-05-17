@@ -1,9 +1,10 @@
 #! /usr/bin/env node
 import yargs, { Arguments }  from 'yargs'
 
-import { createApplication, createDomain, createResource } from './functions'
-import IArgsOptions from './interfaces/IArgsOptions'
-import ICLIArgs from './interfaces/ICLIArgs'
+import IArgsOptions from './interfaces/args-options.interface'
+import ICLIArgs from './interfaces/cli-args.interface'
+
+import { createApplication, createDomain, createResource } from './actions'
 
 (function handle() {
 

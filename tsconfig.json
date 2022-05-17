@@ -5,8 +5,8 @@
     "target": "ES5",
     "module": "CommonJS",
     "outDir": "dist",
+    "baseUrl": "./",
     "rootDir": "./src",
-    "baseUrl": "./src",
     "allowJs": true,
     "strictNullChecks": true,
     "noImplicitAny": false,
@@ -27,8 +27,5 @@
     "strictPropertyInitialization": false,
     "skipLibCheck": true
   },
-  "include": [
-    "*.ts",
-    "**/*.ts"
-  ]
+  "exclude": ["*.js","*.json", "./dist/"]
 }
