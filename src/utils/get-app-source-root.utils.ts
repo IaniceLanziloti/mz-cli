@@ -1,8 +1,6 @@
 import path from 'path'
 import fs from 'fs';
 
-
-
 const getAppSourceRoot = () => {
   const basePath = process.cwd();
   const relativePaths:string[] = [];

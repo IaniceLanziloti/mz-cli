@@ -22,19 +22,12 @@ const createApplication = (appName='mz-application') => {
       {
         location: appPath,
         executor: 'FileSystem',
-        params:[
-          'rm',
-          '-r',
-          '--force',
-          '.git',
-        ]
+        params:['rm','-r','--force','.git',]
       },
       {
         location: appPath,
         executor: 'Git',
-        params:[
-          'init'
-        ]
+        params:['init']
       },
       {
         location: appPath,
