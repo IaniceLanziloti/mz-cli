@@ -8,7 +8,8 @@
   },
   "scripts": {
     "start": "ts-node-dev -r tsconfig-paths/register ./src/bin/index.ts",
-    "build": "tsc --build"
+    "build": "tsc --build",
+    "build:watch": "tsc --build --watch"
   },
   "keywords": [
     "MZGroup",
@@ -17,6 +18,8 @@
   "author": "Iânice Lanziloti",
   "license": "MIT",
   "dependencies": {
+    "@angular-devkit/schematics-cli": "^13.3.7",
+    "@mzgroup/schematics": "file:../mz-schematics",
     "gh": "^2.8.9",
     "yargs": "^17.5.0"
   },
