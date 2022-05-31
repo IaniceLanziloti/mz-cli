@@ -1,10 +1,23 @@
 #! /usr/bin/env node
 import yargs, { Arguments }  from 'yargs'
+import inquirer from 'inquirer'
 
 import IArgsOptions from '../interfaces/args-options.interface'
 import ICLIArgs from '../interfaces/cli-args.interface'
 
 import { createApplication, createDomain, createResource } from '../actions'
+
+const askApplicationName = async () =>{
+  const { application } = await inquirer.prompt([{
+    message:"What name of application container?",
+    name:"application",
+    type:"string"
+  }])
+
+  if (application) {
+    createApplication(application)
+  }
+}
 
 (function handle() {
 
@@ -17,11 +30,12 @@ import { createApplication, createDomain, createResource } from '../actions'
     'domain': {
       alias: 'd',
       describe: 'create a domain',
-      type: 'string'
+      type: 'string',
+      
     },
     'resource': {
       alias: 'r',
-      describe: 'create a resouce',
+      describe: 'create a resource',
       type: 'string'
     }
   }
@@ -30,6 +44,7 @@ import { createApplication, createDomain, createResource } from '../actions'
 
   const _yargs = yargs(process.argv.slice(2))
     .options(options)
+    .command("create application","", ()=>{}, askApplicationName)
     .usage(usageMessage)
     .help(true);
 
@@ -47,9 +62,9 @@ import { createApplication, createDomain, createResource } from '../actions'
     createResource(argv.resource)
   }
 
-  const receivedParam = Object.keys(argv).some(key => Object.keys(options).includes(key))
+  // const receivedParam = Object.keys(argv).some(key => Object.keys(options).includes(key))
 
-  if (!receivedParam) {
-    return _yargs.showHelp()
-  }
+  // // if (!receivedParam) {
+  // //   return _yargs.showHelp()
+  // // }
 })()

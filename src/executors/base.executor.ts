@@ -14,8 +14,6 @@ class BaseExecutor   {
   public exec(location: string, params: string[]) {
     const command = params.join(' ');
     //
-    console.log(command);
-    //
     this.run({
       location,
       command

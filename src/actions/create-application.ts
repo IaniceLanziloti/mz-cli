@@ -37,37 +37,6 @@ const createApplication = (appName='mz-application') => {
         params: () => createConfigurationFile(appPath)
       }
     ]
-    // commands:[
-    //   {
-    //     location:process.cwd(),
-    //     executor:'Git',
-    //     params:[
-    //       'clone',
-    //       'git@github.com:IaniceLanziloti/mz-node-boilerplate.git',
-    //       appName,
-    //     ]
-    //   },
-    //   {
-    //     location: appPath,
-    //     executor: 'FileSystem',
-    //     params:['rm','-r','--force','.git',]
-    //   },
-    //   {
-    //     location: appPath,
-    //     executor: 'Git',
-    //     params:['init']
-    //   },
-    //   {
-    //     location: appPath,
-    //     executor:'Yarn',
-    //     params:['--silent']
-    //   },
-    //   {
-    //     location: appPath,
-    //     executor: "Function",
-    //     params: () => createConfigurationFile(appPath)
-    //   }
-    // ]
   }
 
   PipelineExecutor.execute(pipeline)

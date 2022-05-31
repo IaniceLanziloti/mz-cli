@@ -10,8 +10,8 @@ class PipelineExecutor extends BaseExecutor {
 
     for (let command of commands) {
       const executor = ExecutorFactory.create(command.executor);
-      
-      executor.exec( command.location, command.params)
+
+      executor.exec( command.location, command.params);
     }
   }
 }
