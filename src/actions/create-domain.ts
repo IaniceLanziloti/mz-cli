@@ -7,17 +7,15 @@ const createDomain = (domain:string) =>{
   const dasherizedDomain = strings.dasherize(domain);
   
   const pipeline:IPipeline = {
-     title: `Creating ${dasherizedDomain} domain`, 
-     commands:[
-       {
-        location: process.cwd(),
-        executor: 'Schematics',
-        params:[
-          'domain',
-          `--name=${dasherizedDomain}`
-        ]
-       }
-     ]
+    title: `Creating ${dasherizedDomain} domain`, 
+    commands:[{
+      location: process.cwd(),
+      executor: 'Schematics',
+      params:[
+        'domain',
+        `--name=${dasherizedDomain}`
+      ]
+    }]
   }
 
   PipelineExecutor.execute(pipeline);

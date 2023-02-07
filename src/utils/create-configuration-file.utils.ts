@@ -4,7 +4,7 @@ import path from 'path'
 const createConfigurationFile = (filePath:string) => {
   const configurationFilename = "mz-cli.json";
   const configurationContent = {
-    "rootDir": "./src"
+    "rootDir": "./src",
   }
 
   fs.writeFileSync(

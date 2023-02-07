@@ -62,9 +62,9 @@ const askApplicationName = async () =>{
     createResource(argv.resource)
   }
 
-  // const receivedParam = Object.keys(argv).some(key => Object.keys(options).includes(key))
+  const params = Object.keys(argv).some(key => Object.keys(options).includes(key))
 
-  // // if (!receivedParam) {
-  // //   return _yargs.showHelp()
-  // // }
+  if (!params) {
+    return _yargs.showHelp()
+  }
 })()
